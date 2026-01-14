@@ -55,7 +55,7 @@
     },
     "updater": {
       "endpoints": [
-        "https://github.com/AGP-Racing/agp-strategy-suite/releases/latest/download/latest.json"
+        "https://github.com/MiThRa13460/AGP-Strategy-Suite/releases/latest/download/latest.json"
       ],
       "windows": {
         "installMode": "passive"
