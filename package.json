@@ -1,0 +1,18 @@
+{
+  "name": "agp-strategy-suite",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ultimate sim racing application - Telemetry, Setup Analysis, Endurance Strategy, Live Timing",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "desktop": "cd apps/desktop && npm run tauri dev",
+    "backend": "cd packages/core && python main.py"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}
