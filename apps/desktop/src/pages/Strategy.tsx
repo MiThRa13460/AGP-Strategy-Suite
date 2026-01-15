@@ -25,7 +25,7 @@ interface Recommendation {
   action: string
   priority: number
   reason: string
-  details: Record<string, unknown>
+  details: { fuel_laps?: number; tire_laps?: number; [key: string]: unknown }
 }
 
 interface DriverInfo {

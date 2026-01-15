@@ -12,7 +12,13 @@
     <OutputType>Library</OutputType>
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="**\*.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <!-- SimHub SDK Reference - adjust path as needed -->

@@ -17,8 +17,8 @@ interface StrategyData {
 function useStrategyData(): StrategyData {
   const { telemetry } = useTelemetryStore()
 
-  const fuelLapsRemaining = telemetry?.fuel_per_lap > 0
-    ? telemetry.fuel / telemetry.fuel_per_lap
+  const fuelLapsRemaining = (telemetry?.fuel_per_lap ?? 0) > 0
+    ? (telemetry?.fuel ?? 0) / (telemetry?.fuel_per_lap ?? 1)
     : 30
 
   // These would come from strategy engine via WebSocket
