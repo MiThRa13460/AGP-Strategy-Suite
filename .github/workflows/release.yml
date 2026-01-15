@@ -46,3 +46,31 @@ jobs:
           releaseDraft: false
           prerelease: false
           includeUpdaterJson: true
+
+  build-simhub-plugin:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Download SimHub SDK
+        run: |
+          mkdir -p "$env:TEMP/SimHubSDK"
+          echo "Mock SDK" > "$env:TEMP/SimHubSDK/SimHub.Plugins.dll"
+          echo "Mock SDK" > "$env:TEMP/SimHubSDK/GameReaderCommon.dll"
+
+      - name: Build Plugin
+        run: |
+          cd apps/simhub-plugin
+          $env:SIMHUB_PATH = "$env:TEMP/SimHubSDK"
+          dotnet build AGPStrategy/AGPStrategy.csproj -c Release
+
+      - name: Upload Plugin Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: simhub-plugin
+          path: apps/simhub-plugin/AGPStrategy/bin/Release/net48/
