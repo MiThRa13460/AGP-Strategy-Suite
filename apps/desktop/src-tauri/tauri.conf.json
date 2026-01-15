@@ -48,10 +48,7 @@
   },
   "plugins": {
     "shell": {
-      "all": false,
-      "execute": true,
-      "sidecar": true,
-      "scope": []
+      "open": true
     },
     "updater": {
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDEwRTYyRUY0REMxRjdFOTQKUldTVWZoL2M5QzdtRUdReEVHNDlWY0twalEzcm5mMGlNZXNnaVliVlM5Vk5XLzRIYVA2aFVUWnQK",
