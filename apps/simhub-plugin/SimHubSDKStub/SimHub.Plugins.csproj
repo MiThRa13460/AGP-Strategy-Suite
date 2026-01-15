@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>SimHub.Plugins</AssemblyName>
+    <RootNamespace>SimHub.Plugins</RootNamespace>
+    <LangVersion>10.0</LangVersion>
+    <UseWPF>true</UseWPF>
+    <OutputType>Library</OutputType>
+    <Nullable>enable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="PluginInterfaces.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GameReaderCommon">
+      <HintPath>bin\Release\net48\GameReaderCommon.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

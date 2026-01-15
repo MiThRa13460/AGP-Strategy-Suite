@@ -57,11 +57,14 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Download SimHub SDK
+      - name: Build SimHub SDK Stubs
         run: |
+          cd apps/simhub-plugin/SimHubSDKStub
+          dotnet build GameReaderCommon.csproj -c Release
+          dotnet build SimHub.Plugins.csproj -c Release
           mkdir -p "$env:TEMP/SimHubSDK"
-          echo "Mock SDK" > "$env:TEMP/SimHubSDK/SimHub.Plugins.dll"
-          echo "Mock SDK" > "$env:TEMP/SimHubSDK/GameReaderCommon.dll"
+          Copy-Item "bin/Release/net48/GameReaderCommon.dll" "$env:TEMP/SimHubSDK/"
+          Copy-Item "bin/Release/net48/SimHub.Plugins.dll" "$env:TEMP/SimHubSDK/"
 
       - name: Build Plugin
         run: |

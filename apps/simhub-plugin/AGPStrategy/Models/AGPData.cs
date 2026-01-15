@@ -123,7 +123,7 @@ namespace AGPStrategy.Models
     /// <summary>
     /// Corner data for tires/brakes.
     /// </summary>
-    public class TireCornerData<T>
+    public class TireCornerData<T> where T : struct
     {
         [JsonProperty("FL")]
         public T? FL { get; set; }

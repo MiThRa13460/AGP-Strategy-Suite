@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>GameReaderCommon</AssemblyName>
+    <RootNamespace>GameReaderCommon</RootNamespace>
+    <LangVersion>10.0</LangVersion>
+    <OutputType>Library</OutputType>
+    <Nullable>enable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="GameData.cs" />
+  </ItemGroup>
+
+</Project>

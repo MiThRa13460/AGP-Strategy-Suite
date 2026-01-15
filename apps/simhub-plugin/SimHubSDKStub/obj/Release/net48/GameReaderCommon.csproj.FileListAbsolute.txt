@@ -1,0 +1,10 @@
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\GameReaderCommon.csproj.AssemblyReference.cache
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\GameReaderCommon.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\GameReaderCommon.AssemblyInfoInputs.cache
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\GameReaderCommon.AssemblyInfo.cs
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\GameReaderCommon.csproj.CoreCompileInputs.cache
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\GameReaderCommon.sourcelink.json
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\bin\Release\net48\GameReaderCommon.dll
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\bin\Release\net48\GameReaderCommon.pdb
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\GameReaderCommon.dll
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\GameReaderCommon.pdb

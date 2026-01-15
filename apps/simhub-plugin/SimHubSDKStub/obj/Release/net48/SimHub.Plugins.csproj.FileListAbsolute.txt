@@ -1,0 +1,12 @@
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\bin\Release\net48\SimHub.Plugins.dll
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\bin\Release\net48\SimHub.Plugins.pdb
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\bin\Release\net48\GameReaderCommon.pdb
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.Plugins.csproj.AssemblyReference.cache
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.Plugins.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.Plugins.AssemblyInfoInputs.cache
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.Plugins.AssemblyInfo.cs
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.Plugins.csproj.CoreCompileInputs.cache
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.Plugins.sourcelink.json
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.P.6A323EF9.Up2Date
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.Plugins.dll
+C:\Users\gesti\Desktop\AGP-Strategy-Suite\apps\simhub-plugin\SimHubSDKStub\obj\Release\net48\SimHub.Plugins.pdb
