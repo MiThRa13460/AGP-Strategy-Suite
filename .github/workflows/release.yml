@@ -11,39 +11,10 @@ env:
   TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
 
 jobs:
-  # Get changelog for the release
-  prepare-release:
-    runs-on: ubuntu-latest
-    outputs:
-      changelog: ${{ steps.changelog.outputs.changelog }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Extract changelog for version
-        id: changelog
-        run: |
-          VERSION="${{ github.ref_name }}"
-          VERSION="${VERSION#v}"
-
-          # Extract section for this version from CHANGELOG.md
-          CHANGELOG=$(awk "/^## \[${VERSION}\]/{flag=1; next} /^## \[/{flag=0} flag" CHANGELOG.md)
-
-          # If not found, use default message
-          if [ -z "$CHANGELOG" ]; then
-            CHANGELOG="See CHANGELOG.md for details."
-          fi
-
-          # Escape for GitHub output
-          CHANGELOG="${CHANGELOG//'%'/'%25'}"
-          CHANGELOG="${CHANGELOG//$'\n'/'%0A'}"
-          CHANGELOG="${CHANGELOG//$'\r'/'%0D'}"
-
-          echo "changelog=$CHANGELOG" >> $GITHUB_OUTPUT
-
-  # Build Tauri app with updater support
   build-tauri:
-    needs: prepare-release
     runs-on: windows-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -70,95 +41,8 @@ jobs:
         with:
           projectPath: apps/desktop
           tagName: ${{ github.ref_name }}
-          releaseName: 'AGP Strategy Suite ${{ github.ref_name }}'
-          releaseBody: ${{ needs.prepare-release.outputs.changelog }}
-          releaseDraft: true
+          releaseName: AGP Strategy Suite ${{ github.ref_name }}
+          releaseBody: Release ${{ github.ref_name }}
+          releaseDraft: false
           prerelease: false
           includeUpdaterJson: true
-
-  # Build SimHub plugin
-  build-simhub-plugin:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
-
-      - name: Download SimHub SDK
-        run: |
-          # Create mock SDK for CI build
-          mkdir -p "$env:TEMP/SimHubSDK"
-          # Note: In real scenario, download from SimHub or use local cache
-          echo "Mock SDK" > "$env:TEMP/SimHubSDK/SimHub.Plugins.dll"
-          echo "Mock SDK" > "$env:TEMP/SimHubSDK/GameReaderCommon.dll"
-
-      - name: Build Plugin
-        run: |
-          cd apps/simhub-plugin
-          $env:SIMHUB_PATH = "$env:TEMP/SimHubSDK"
-          dotnet build AGPStrategy/AGPStrategy.csproj -c Release
-
-      - name: Upload Plugin Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: simhub-plugin
-          path: apps/simhub-plugin/AGPStrategy/bin/Release/net48/
-
-  # Build Python backend
-  build-python-backend:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          cd packages/core
-          pip install -r requirements.txt
-          pip install pyinstaller
-
-      - name: Build Backend
-        run: |
-          cd packages/core
-          pyinstaller --name agp-backend --onedir --noconsole --add-data "agp_core;agp_core" main.py
-
-      - name: Upload Backend Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: python-backend
-          path: packages/core/dist/agp-backend/
-
-  # Create NSIS installer
-  create-installer:
-    needs: [build-tauri, build-simhub-plugin, build-python-backend]
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-
-      - name: Install NSIS
-        run: choco install nsis -y
-
-      - name: Build Installer
-        run: |
-          cd installer/nsis
-          makensis /DVERSION=${{ github.ref_name }} agp-strategy-suite.nsi
-
-      - name: Upload Installer to Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            dist/*.exe
-            simhub-plugin/*.dll
-          draft: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
